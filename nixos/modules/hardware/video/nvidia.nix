@@ -302,6 +302,8 @@ in
             extraPackages32 = [ nvidia_x11.lib32 ];
           };
           environment.systemPackages = [ nvidia_x11.bin ];
+
+          hardware.nvidia.open = lib.mkIf (lib.versionAtLeast nvidia_x11.version "560") (lib.mkDefault true);
         })
 
         # X11
